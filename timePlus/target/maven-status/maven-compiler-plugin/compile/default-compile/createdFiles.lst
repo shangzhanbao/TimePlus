@@ -1,0 +1,7 @@
+com/siims/vmaque/timePlus/viewer/persistence/BaseDao.class
+com/siims/vmaque/timePlus/self/action/TestAction.class
+com/siims/vmaque/timePlus/user/persistence/BaseDao.class
+com/siims/vmaque/timePlus/self/persistence/BaseDao.class
+com/siims/vmaque/timePlus/viewer/service/BaseService.class
+com/siims/vmaque/timePlus/user/service/BaseService.class
+com/siims/vmaque/timePlus/self/service/BaseService.class

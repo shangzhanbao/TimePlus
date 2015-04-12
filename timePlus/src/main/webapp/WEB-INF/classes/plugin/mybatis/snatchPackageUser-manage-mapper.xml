@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.siims.vmaque.snatchPackageUser">
+	<resultMap type="com.siims.vmaque.snatchPackageUser.data.SnatchPackageUserData" id="snatchPackageUserDataResult">
+		<result column="ID" property="id" javaType="string" />
+		<result column="SNATCHUSERPHONE" property="snatchUserPhone" javaType="string" />
+		<result column="REDPACKAGESTATE" property="redPackageState" javaType="integer" />
+		<result column="SNARCHPRICE" property="snarchPrice" javaType="double" />
+		<result column="SNATCHTIME" property="snatchTime" javaType="java.util.Date" />
+		<result column="USETIME" property="useTime" javaType="date" />
+		<result column="COLLARPACKAGEUSERID" property="collarPackageUserId" javaType="string" />
+		<result column="REDPACKAGEID" property="redpackageId" javaType="string" />
+		<result column="ROWNUM" property="rowNum" javaType="integer" />
+		<result column="PAGESIZE" property="pageSize" javaType="Integer" />
+		<result column="STARTROW" property="startRow" javaType="Integer" />
+		<result column="PACKAGEIMG" property="packAgeImg" javaType="string" />
+		<result column="PACKAGENAME" property="packageName" javaType="string"/>
+		<result column="PACKAGEFORPAGEURL" property="packageForPageUrl" javaType="string"/>
+		<result column="VALIDTIME" property="validTime" javaType="java.util.Date"/>
+	</resultMap>
+	<select id="snatchDataByPhoneAndPackageId" resultMap="snatchPackageUserDataResult">
+		SELECT * 
+		FROM MINI_SNATCHPACKAGEUSER ms 
+		<trim prefix="where 1=1 "  prefixOverrides=" AND | OR ">
+		         <!--  侯杨注释 -->
+			<!-- <if test=" id != null ">
+				AND ms.id = #{id}
+			</if> -->
+			<if test=" snatchUserPhone != null ">
+				AND ms.SNATCHUSERPHONE = #{snatchUserPhone}
+			</if>
+			<if test=" redpackageId != null ">
+				AND ms.REDPACKAGEID = #{redpackageId}
+			</if>
+			<if test=" redPackageState != null ">
+				AND ms.REDPACKAGESTATE =  #{redPackageState}
+			</if>
+			<if test=" collarPackageUserId != null ">
+				AND ms.COLLARPACKAGEUSERID =  #{collarPackageUserId}
+			</if>
+		</trim>
+	</select>
+	<insert id="snatchDataInsert" parameterType="com.siims.vmaque.snatchPackageUser.data.SnatchPackageUserData">
+		insert MINI_SNATCHPACKAGEUSER(id,Snatchuserphone,REDPACKAGESTATE,Snarchprice,Snatchtime,Collarpackageuserid,Redpackageid)
+		VALUES (#{id},#{SNATCHUSERPHONE},#{REDPACKAGESTATE},#{SNARCHPRICE},#{SNATCHTIME},#{COLLARPACKAGEUSERID},#{REDPACKAGEID})
+	</insert>
+	<select id="snatchDataByPhone" resultMap="snatchPackageUserDataResult">
+		SELECT * 
+		FROM MINI_SNATCHPACKAGEUSER ms 
+		<trim prefix="where 1=1 "  prefixOverrides=" AND | OR ">
+			<if test=" snatchUserPhone != null ">
+				AND ms.SNATCHUSERPHONE = #{snatchUserPhone}
+			</if>
+			<if test=" collarPackageUserId != null ">
+				AND ms.COLLARPACKAGEUSERID = #{collarPackageUserId} AND ms.REDPACKAGESTATE=1
+			</if>
+		</trim>
+	</select>
+	
+	<!-- 根据红包id查询抢红包实体信息 -->
+	<select id="querysnatchPackageUserDataByRedPackAgeId" resultMap="snatchPackageUserDataResult">
+		SELECT * FROM (SELECT * FROM MINI_SNATCHPACKAGEUSER C WHERE 1=1 
+		<if test="redpackageId != null">
+			AND C.REDPACKAGEID = #{redpackageId}
+		</if>
+		ORDER BY C.SNATCHTIME DESC)
+		
+		<if test="rowNum != null">
+			<![CDATA[ WHERE ROWNUM < = #{rowNum}]]>
+		</if>
+	</select>
+	
+	<!-- 根据微信openid和红包状态查询红包记录 -->
+	<select id="queryRedPackageRecord" resultMap="snatchPackageUserResult">		
+		SELECT * FROM(
+		SELECT SN.SNARCHPRICE AS SNARCHPRICE,
+		       RP.PACKAGEIMG AS PACKAGEIMG,
+		       RP.PACKAGENAME AS PACKAGENAME,
+		       RP.PACKAGEFORPAGEURL AS PACKAGEFORPAGEURL,
+		       RP.VALIDTIME AS VALIDTIME,
+		       ROWNUM RN
+		  FROM MINI_SNATCHPACKAGEUSER SN
+		  JOIN MINI_REDPACKAGECONTENT RP ON SN.REDPACKAGEID = RP.ID
+          <trim prefix="where 1=1"  prefixOverrides=" AND | OR ">
+			<if test="openId != null">
+			AND SN.OPENID = #{openId}
+			</if>
+			<if test="redPackageState!= null and redPackageState != 2">
+			AND SN.REDPACKAGESTATE = #{redPackageState}
+			</if>
+			<if test="validTime != null and redPackageState == 2">
+			<![CDATA[ AND RP.VALIDTIME <#{validTime} ]]>   
+			</if>
+		</trim>
+          )
+           <trim prefix="where 1=1"  prefixOverrides=" AND | OR ">
+           <![CDATA[ AND RN > (#{startRow}-1)*#{pageSize}  AND RN < =#{startRow}*#{pageSize}]]>   
+           </trim>
+	</select>
+	
+	<!-- 根据微信openid和红包状态查询红包记录总条数 -->
+	<select id="queryRedPackageRecordCount" resultMap="snatchPackageUserResult">		
+		SELECT SN.SNARCHPRICE AS SNARCHPRICE,
+		       RP.PACKAGEIMG AS PACKAGEIMG,
+		       RP.PACKAGENAME AS PACKAGENAME,
+		       RP.PACKAGEFORPAGEURL AS PACKAGEFORPAGEURL,
+		       RP.VALIDTIME AS VALIDTIME,
+		       ROWNUM RN
+		  FROM MINI_SNATCHPACKAGEUSER SN
+		  JOIN MINI_REDPACKAGECONTENT RP ON SN.REDPACKAGEID = RP.ID
+          <trim prefix="where 1=1"  prefixOverrides=" AND | OR ">
+			<if test="openId != null">
+			AND SN.OPENID = #{openId}
+			</if>
+			<if test="redPackageState!= null and redPackageState != 2">
+			AND SN.REDPACKAGESTATE = #{redPackageState}
+			</if>
+			<if test="validTime != null and redPackageState == 2">
+			<![CDATA[ AND RP.VALIDTIME <#{validTime} ]]>   
+			</if>
+		</trim>
+	</select>
+</mapper>
