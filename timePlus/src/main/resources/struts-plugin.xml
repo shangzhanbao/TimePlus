@@ -8,5 +8,11 @@
 		<action name="test" class="com.siims.vmaque.timePlus.self.action.TestAction" method="test">
 			<result name="test" type="freemarker">/ui/ftl/test/test.ftl</result>
 		</action>
+		<action name="add" class="com.siims.vmaque.timePlus.self.action.TestAction" method="add">
+			<result name="add" type="freemarker">/ui/ftl/test/add.ftl</result>
+		</action>
+		<action name="get" class="com.siims.vmaque.timePlus.self.action.TestAction" method="get">
+			<result name="get" type="freemarker">/ui/ftl/test/get.ftl</result>
+		</action>
 	</package>
 </struts>
