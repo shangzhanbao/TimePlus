@@ -1,0 +1,12 @@
+com/siims/vmaque/timePlus/viewer/persistence/BaseDao.class
+com/siims/vmaque/timePlus/self/action/TestAction.class
+com/siims/vmaque/timePlus/user/persistence/BaseDao.class
+com/siims/vmaque/timePlus/self/business/impl/TestBusinessImpl.class
+com/siims/vmaque/timePlus/self/service/impl/TestServiceImpl.class
+com/siims/vmaque/timePlus/self/data/TestData.class
+com/siims/vmaque/timePlus/self/service/TestService.class
+com/siims/vmaque/timePlus/self/business/TestBusiness.class
+com/siims/vmaque/timePlus/viewer/service/BaseService.class
+com/siims/vmaque/timePlus/user/service/BaseService.class
+com/siims/vmaque/timePlus/self/persistence/TestPersistence.class
+com/siims/vmaque/timePlus/self/persistence/impl/TestPersistenceImpl.class

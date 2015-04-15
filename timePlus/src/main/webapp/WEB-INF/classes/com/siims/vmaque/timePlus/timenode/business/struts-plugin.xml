@@ -1,0 +1,128 @@
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.1//EN"
+	"http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+	<!-- 红包管理 -->
+	<package name="siims.vmaque.redPackage" namespace="/siims/vmaque/redPackage" extends="siims.framework.default">
+		<!-- 分页查询红包信息集合并将查询结果返回 -->
+		<action name="searchAllRedPackage" class="com.siims.vmaque.redPackage.action.RedPackageManageAction" method="searchAllRedPackage">
+			<result name="success" type="freemarker">/ui/ftl/redPackageManage/redPackageList.ftl</result>
+		</action>
+		<!-- ajax 删除红包  -->
+		<action name="delRedPackage" class="com.siims.vmaque.redPackage.action.RedPackageManageAction" method="delRedPackage">
+		</action>
+		
+		<!-- 跳转红包页面 -->
+		<action name="skipRedPackage" class="com.siims.vmaque.redPackage.action.RedPackageManageAction" method="skipRedPackage">
+			<result name="createRedPackage1" type="freemarker">/ui/ftl/redPackageManage/create/createRedPackage1.ftl</result>
+			<result name="createRedPackage2" type="freemarker">/ui/ftl/redPackageManage/create/createRedPackage2.ftl</result>
+			<result name="createRedPackage3" type="freemarker">/ui/ftl/redPackageManage/create/createRedPackage3.ftl</result>
+			<result name="createRedPackage4" type="freemarker">/ui/ftl/redPackageManage/create/createRedPackage4.ftl</result>
+			<result name="editRedPackage1" type="freemarker">/ui/ftl/redPackageManage/edit/editRedPackage1.ftl</result>
+			<result name="editRedPackage2" type="freemarker">/ui/ftl/redPackageManage/edit/editRedPackage2.ftl</result>
+			<result name="editRedPackage3" type="freemarker">/ui/ftl/redPackageManage/edit/editRedPackage3.ftl</result>
+			<result name="editRedPackage4" type="freemarker">/ui/ftl/redPackageManage/edit/editRedPackage4.ftl</result>
+		</action>
+		
+		<!-- 获取page域名信息 -->
+		<action name="getPagedomain" class="com.siims.vmaque.redPackage.action.RedPackageManageAction" method="getPageListByUserId">
+		</action>
+		<!-- ajax保存红包信息 -->
+		<action name="ajaxPreserveRedPackage" class="com.siims.vmaque.redPackage.action.RedPackageManageAction" method="ajaxPreserveRedPackage">
+		</action>
+		
+		<!-- 跳转到创建或修改红包右侧页面 -->
+		<action name="skipRedPackageRight" class="com.siims.vmaque.redPackage.action.RedPackageManageAction" method="skipRedPackageRight">
+			<result name="redPackageRight1" type="freemarker">/ui/ftl/redPackageManage/right/redEnvelopes1.ftl</result>
+			<result name="redPackageRight2" type="freemarker">/ui/ftl/redPackageManage/right/redEnvelopes2.ftl</result>
+			<result name="redPackageRight3" type="freemarker">/ui/ftl/redPackageManage/right/redEnvelopes3.ftl</result>
+			<result name="redPackageRight4" type="freemarker">/ui/ftl/redPackageManage/right/redEnvelopes4.ftl</result>
+		</action>
+		
+		<!-- 生成红包，跳转到红包管理页面 -->
+		<action name="produceRedPackage" class="com.siims.vmaque.redPackage.action.RedPackageManageAction" method="produceRedPackage">
+			<!--<result name="produceRedPackage" type="chain">searchAllRedPackage</result>-->
+		</action>
+		
+		<!-- 红包历史 -->
+		<action name="toRedPackageHistoryList" class="com.siims.vmaque.redPackage.action.RedPackageHistoryAction" method="toRedPackageHistoryList">
+			<result name="success" type="freemarker">/ui/ftl/redPackageManage/history/redPackageHistoryList.ftl</result>
+		</action>
+	</package>
+	<!-- 领取红包 -->
+	<package name="siims.vmaque.collarPackageUser" namespace="/siims/vmaque/collarPackageUser" extends="siims.framework.default">
+		<!-- 去领取红包页面-->
+		<action name="toCollarPackageUserIndex" class="com.siims.vmaque.collarPackageUser.action.CollarPackageUserAction" method="toCollarPackageUserIndex">
+			<result name="success" type="freemarker">/ui/ftl/receiveRedEnvelopes/redEnvelopes.ftl</result>
+		</action>
+		<!-- 扫描二维码跳转的页面 -->
+		<action name="toredEnvelopes" class="com.siims.vmaque.collarPackageUser.action.CollarPackageUserAction" method="toredEnvelopes">
+			<result name="success" type="freemarker">/ui/ftl/receiveRedEnvelopes/redEnvelopes1.ftl</result>
+		</action>
+		<!-- 领取红包执行添加 -->
+		<action name="receiveRedEnvelopes" class="com.siims.vmaque.collarPackageUser.action.CollarPackageUserAction" method="receiveRedEnvelopes">
+		</action>
+		<!-- 领取红包成功跳转页面 -->
+		<action name="toCollarPackageUserSuccess" class="com.siims.vmaque.collarPackageUser.action.CollarPackageUserAction" method="toCollarPackageUserSuccess">
+		<result name="success" type="freemarker">/ui/ftl/receiveRedEnvelopes/redEnvelopes2.ftl</result>
+		</action>
+		<!-- 红包已领完跳转页面 -->
+		<action name="toCollarPackageUsererror" class="com.siims.vmaque.collarPackageUser.action.CollarPackageUserAction" method="toCollarPackageUsererror">
+		<result name="success" type="freemarker">/ui/ftl/receiveRedEnvelopes/redEnvelopes4.ftl</result>
+		</action>
+
+	</package>
+	
+	<!-- 抢红包 -->
+	<package name="siims.vmaque.snatchPackage" namespace="/siims/vmaque/snatchPackage" extends="siims.framework.default">
+		<!-- 去抢红包的首页 -->
+		<action name="toSnatchPackageIndex" class="com.siims.vmaque.snatchPackageUser.action.SnatchPackageAction" method="toSnatchPackageIndex">
+			<result name="success" type="freemarker">/ui/ftl/snatchPackage/snatchPackageIndex.ftl</result>
+		</action>
+		<action name="snatchPackage" class="com.siims.vmaque.snatchPackageUser.action.SnatchPackageAction" method="snatchPackage">
+			<result name="success" type="freemarker">/ui/ftl/snatchPackage/snatchPackageIndex.ftl</result>
+		</action>
+		<!-- 删除 -->
+		<action name="delSnatchInfoById" class="com.siims.vmaque.snatchPackageUser.action.SnatchPackageAction" method="delSnatchInfoById">
+		</action>
+		<!-- 使用-->
+		<action name="updateSaveSnatchPackageUserData" class="com.siims.vmaque.snatchPackageUser.action.SnatchPackageAction" method="updateSaveSnatchPackageUserData">
+		</action>
+		<!-- 红包历史 -->
+		<action name="redPackageRecord" class="com.siims.vmaque.snatchPackageUser.action.SnatchPackageAction" method="redPackageRecord">
+		</action>
+		
+		<!-- 跳转到抢红包成功页面 -->
+		<action name="snatchPackageSuccess" class="com.siims.vmaque.snatchPackageUser.action.SnatchPackageAction" method="snatchPackageSuccess">
+			<result name="snatchPackageSuccess" type="freemarker">/ui/ftl/snatchPackage/snatchPackageGrabSuccess.ftl</result>
+		</action>
+		<!-- 跳转到红包抢光了页面 -->
+		<action name="snatchPackageFailure" class="com.siims.vmaque.snatchPackageUser.action.SnatchPackageAction" method="snatchPackageFailure">
+			<result name="snatchPackageFailure" type="freemarker">/ui/ftl/snatchPackage/snatchPackageGrabFailure.ftl</result>
+		</action>
+
+		<!-- 购买流程查询数据-->
+		<action name="getGoumaiSnatchPackageUserData" class="com.siims.vmaque.snatchPackageUser.action.SnatchPackageAction" method="getGoumaiSnatchPackageUserData">
+		</action>
+		<!-- 购买流程使用红包-->
+		<action name="goumaiUpdateSaveSnatchPackageUserData" class="com.siims.vmaque.snatchPackageUser.action.SnatchPackageAction" method="goumaiUpdateSaveSnatchPackageUserData">
+		</action>
+	</package>
+	
+	<package name="printrTwoCodee" namespace="/siims/vmaque/printrTwoCode" extends="siims.framework.default">
+		<action name="printRTwoCode" class="com.siims.vmaque.util.PrintrTwoCodeAction" method="toPrint">
+			<result name="printTwoCode" type="freemarker">/ui/ftl/redPackageManage/printTwoCode.ftl</result>
+		</action>
+	</package>
+	
+	<!-- 上传图片 -->
+	<package name="siims.vmaque.util.upload" namespace="/siims/vmaque/uploadImg"  extends="siims.framework.default">
+		<action name="uploadImg" class="com.siims.vmaque.util.UploadImgAction" method="uploadImage"></action>
+	</package>
+	
+	<package name="siims.vmaque.util.sha" namespace="/siims/vmaque/sha" extends="siims.framework.default">
+		<action name="shaSignature" class="com.siims.vmaque.util.SignatureAction" method="shaSignature" />
+		<action name="obtainAccessToken" class="com.siims.vmaque.util.SignatureAction" method="obtainAccessToken" />
+		<action name="obtainTicketStr" class="com.siims.vmaque.util.SignatureAction" method="obtainTicketStr" />
+	</package>
+</struts>
