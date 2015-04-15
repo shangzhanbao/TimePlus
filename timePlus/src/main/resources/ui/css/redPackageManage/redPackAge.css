@@ -1,0 +1,327 @@
+@charset "utf-8";
+body {
+	background:#E6E6E6;
+}
+div,span,h1,h2,h3,h4,h5,h6,ul,li,input,select {
+	margin: 0;
+	padding: 0;
+}
+.redEnvelopesTitle {
+	width: 790px;
+	height: 40px;
+	background: #E9E9E9;
+	background: -moz-linear-gradient(top, #FAFAFA 0%, #E9E9E9 100%);
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #FAFAFA), color-stop(100%, #E9E9E9));
+	background: -webkit-linear-gradient(top, #FAFAFA 0%, #E9E9E9 100%);
+	background: -o-linear-gradient(top, #FAFAFA 0%, #E9E9E9 100%);
+	background: -ms-linear-gradient(top, #FAFAFA 0%, #E9E9E9 100%);
+	background: linear-gradient(top, #FAFAFA 0%, #E9E9E9 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#FAFAFA', endColorstr='#E9E9E9');
+	-ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr='#FAFAFA', endColorstr='#E9E9E9')";
+	-webkit-background-clip: padding-box;
+	border-bottom: 1px solid #ddd;
+	line-height: 40px;
+	text-align:left;
+}
+.redEnvelopesTitle h1 {
+	font-size: 18px;
+	text-shadow: 1px 1px 1px rgba(255, 255, 255, .1);
+	color: #666;
+	float: left;
+	line-height: 40px;
+	margin-left: 15px;
+}
+.redEnvelopesTop {
+	height:60px;
+	width:790px;
+}
+.redEnvelopesTopDivImg{
+	width:60px;
+	height:60px;
+}
+.redEnvelopesTopDivImgFirst{
+	float:left; 
+	margin-left:35px;
+}
+.redEnvelopesTopDivLable{
+	font-family: '微软雅黑 Bold', '微软雅黑';
+	font-weight: 400;
+	font-size: 16px;
+	float:left;
+	color: #333333; 
+	line-height:60px;
+}
+.redEnvelopesTopDivLableBlod{
+	color: #21A8DB; 
+	font-weight: 700;
+}
+.redEnvelopesTitleLine {
+	background:#CCCCCC; 
+	width:790px; 
+	height:2px;
+}
+.redEnvelopesTitleLineStep {
+	background:#21A8DB; 
+	width:190px; 
+	height:2px;
+}
+.redEnvelopesEditBtn {
+	background:url(image/u56.png); 
+	width: 60px; 
+	height:60px;
+	font-family: '微软雅黑 Bold', '微软雅黑'; 
+	font-weight: 700; 
+	font-size: 18px; 
+	color: #FFFFFF; 
+	text-align:center; 
+	line-height:60px; 
+	position:absolute; 
+	left:720px; 
+	top:250px; 
+	cursor:pointer;
+}
+.redEnvelopesLeft{
+	background:url(image/u129.png); 
+	width: 293px; 
+	height: 604px; 
+	margin-top: 50px; 
+	margin-left:250px;
+}
+.redEnvelopesLeftIfarme {
+	width: 244px;
+	height: 429px;
+	padding-top: 88px;
+	margin-left: 26px;
+}
+.redEnvelopesRight{
+	display:none;
+}
+.redEnvelopesRightDivImg {
+	background:url(image/u31.png); 
+	width:40px; 
+	height:60px; 
+	position:absolute;
+	left: 400px;
+	top: 420px;
+}
+.redEnvelopesRightDivImgFrame {
+	background:url(image/rectangle_raunded_u33.png); 
+	width:250px; 
+	height:430px; 
+	position: absolute;
+	top: 250px;
+	left: 420px;
+}
+.redEnvelopesRightFormDiv {
+	width:200px; 
+	margin:10px auto;
+}
+.redEnvelopesRightFormFont {
+	font-family: '微软雅黑 Regular', '微软雅黑';
+	font-size: 16px;
+	font-weight: 400;
+	color: #333333;
+	margin-left:-8px;
+	margin-top:15px;
+}
+.redEnvelopesRightFormFont span {
+	color:red;
+}
+.redEnvelopesRightFormInpDiv {
+	margin-top:15px; 
+	text-align:center;
+}
+.redEnvelopesRightFormLine {
+	background:url(image/line_horizontal_u50_line.png); 
+	height:1px; 
+	width:230px; 
+	margin-left:-15px; 
+	margin-top:15px;
+}
+.redEnvelopesRightFormInpName {
+	width: 198px; 
+	height: 30px; 
+	margin-top:5px;
+	font-family: 'Arial Normal', 'Arial'; 
+	font-weight: 400; 
+	font-size: 13px; 
+	text-decoration: none; 
+	color: #000000;
+}
+.redEnvelopesRightFormTexaName{
+	width: 200px;
+	height: 79px; 
+	outline:none;
+	resize:none; 
+	font-family: 'Arial Normal', 'Arial'; 
+	font-weight: 400; 
+	font-size: 13px; 
+	color: #000000;
+}
+.redEnvelopesRightFormTexa {
+	width: 200px;
+	height: 180px; 
+	outline:none;
+	resize:none; 
+	font-family: 'Arial Normal', 'Arial'; 
+	font-weight: 400; 
+	font-size: 13px; 
+	color: #000000;
+}
+.redEnvelopesRightCompleteBtn{
+	width: 100px;
+	height: 30px; 
+	border:none;
+	color: #FFFFFF;
+	font-family: 'Arial Normal', 'Arial'; 
+	background:#CA5947; 
+	font-weight: 400; 
+	cursor:pointer;
+}
+.redEnvelopesRightCompleteBtn:hover {
+	background:#FF9900;
+}
+.redEnvelopesNextBtn{
+	background:url(image/u56.png); 
+	width: 60px; 
+	height:60px;
+	font-family: '微软雅黑 Bold', '微软雅黑'; 
+	font-weight: 700; 
+	font-size: 72px; 
+	color: #FFFFFF; 
+	text-align:center; 
+	line-height:50px; 
+	position:absolute; 
+	left:720px; 
+	top:500px; 
+	display:none;
+	cursor:pointer;
+}
+.redEnvelopesNextFont {
+	position: absolute; 
+	left:725px; 
+	top: 570px; 
+	font-family: '微软雅黑 Bold', '微软雅黑';
+	font-weight: 700;
+	font-size: 16px;
+	color: #666666;
+	display:none;
+}
+.redEnvelopesBackBtn {
+	background:url(image/u62.png); 
+	width: 60px; 
+	height:60px;
+	font-family: '微软雅黑 Bold', '微软雅黑'; 
+	font-weight: 700;
+	font-size: 72px; 
+	color: #FFFFFF; 
+	text-align:center; 
+	line-height:50px; 
+	position:absolute; 
+	left:720px; 
+	top:400px; 
+	display:none;
+	cursor:pointer;
+}
+.redEnvelopesBackFont {
+	position: absolute; 
+	left:725px; 
+	top: 370px; 
+	font-family: '微软雅黑 Bold', '微软雅黑';
+	font-weight: 700;
+	font-size: 16px;
+	color: #666666;
+	display:none;
+}
+.redEnvelopesEditMoneyBtn {
+	width: 25px;
+	height: 25px;
+	border: none;
+	font-family: 'Arial Normal', 'Arial';
+	font-weight: 400;
+	font-style: normal;
+	font-size: 16px;
+	color: #333333;
+	text-align: center;
+	line-height: normal;
+	cursor: pointer;
+}
+.redEnvelopesEditMoneyNum {
+	width: 28px;
+	height: 21px;
+	background-image: none;
+	font-family: 'Arial Normal', 'Arial';
+	font-weight: 400;
+	font-style: normal;
+	font-size: 13px;
+	text-decoration: none;
+	color: #000000;
+	text-align: center;
+}
+.redEnvelopesEditMoneyRange {
+	width: 40px;
+	height: 20px;
+	background-image: none;
+	font-family: 'Arial Normal', 'Arial';
+	font-weight: 400;
+	font-style: normal;
+	font-size: 13px;
+	text-decoration: none;
+	color: #000000;
+	text-align: center;
+}
+.redEnvelopesEditMoneyReward {
+	width: 80px;
+	height: 20px;
+	background-image: none;
+	font-family: 'Arial Normal', 'Arial';
+	font-weight: 400;
+	font-style: normal;
+	font-size: 13px;
+	text-decoration: none;
+	color: #000000;
+	text-align: center;
+}	
+.redEnvelopesEditLable {
+	font-family: '微软雅黑 Regular', '微软雅黑';
+	font-size: 16px;
+	font-weight: 400;
+	font-style: normal;
+	color: #000000;
+	margin-top: 35px;
+}
+.redEnvelopesEditLable lable {
+	font-family: '微软雅黑 Regular', '微软雅黑';
+	font-weight: 400;
+	font-style: normal;
+	font-size: 12px;
+	color: #009DD9;
+}
+.redEnvelopesEditMoney {
+	text-align: center;
+	margin-top: 10px;
+}
+.redEnvelopesEditLink {
+	width: 180px;
+	height: 22px;
+	font-family: '微软雅黑 Regular', '微软雅黑';
+	font-weight: 400;
+	font-style: normal;
+	font-size: 13px;
+	text-decoration: none;
+	position: absolute;
+	border: 1px solid #A9A9A9;
+	left: 0;
+}
+.redEnvelopesEditLinkLable {
+	font-family: '微软雅黑 Regular', '微软雅黑';
+	font-weight: 400;
+	font-style: normal;
+	font-size: 13px;
+	color: #6699FF;
+	text-align: left;
+	line-height: normal;
+	margin-top: 30px;
+	text-decoration: underline;
+	cursor: pointer;
+}
