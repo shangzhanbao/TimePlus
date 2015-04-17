@@ -75,7 +75,7 @@ public class TimeNode implements BaseData{
 	private String pics;
 	
 	/**
-	 * 描述：每张图片对应的描述，用'%;'分开，如果对应的没有描述，默认为" "，并加上分隔符<br>
+	 * 描述：每张图片对应的描述，如果对应的没有描述，默认为" "，并加上分隔符<br>
 	 * 类似：NVARCHAR2(3072)<br>
 	 * 字段名称：t_node_pics_desc<br>
 	 * 可否为空：否
