@@ -79,7 +79,7 @@ TimeAxisPersistence{
 	 * 
 	 * 添加时光轴信息
 	 * 
-	 * @author lf<br> 
+	 * @author lf 
 	 *		   
 	 * @update 
 	 * @param timePlusData     时光轴对象信息

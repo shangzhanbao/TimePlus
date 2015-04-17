@@ -107,7 +107,7 @@ public class TimeAxisBusinessImpl implements TimeAxisBusiness{
 	 * 
 	 * 根据的id更新时光轴剩余个数<br>
 	 * 
-	 * @author lf<br> 
+	 * @author lf
 	 *		  
 	 * @update 
 	 * @param id 时光轴id

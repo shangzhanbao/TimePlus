@@ -83,7 +83,7 @@ public interface TimeAxisPersistence extends
 	 * 
 	 * 根据id删除时光轴相关信息<br>
 	 * 
-	 * @author  lf<br> 
+	 * @author  lf
 	 *		 
 	 * @update 
 	 * @param id 时光轴id
