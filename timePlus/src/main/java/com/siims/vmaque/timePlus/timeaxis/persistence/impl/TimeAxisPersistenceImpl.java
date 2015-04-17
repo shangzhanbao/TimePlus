@@ -20,6 +20,7 @@ import com.siims.framework.utils.PageRoll;
 
 import com.siims.vmaque.timePlus.timeaxis.data.TimeAxis;
 import com.siims.vmaque.timePlus.timeaxis.persistence.TimeAxisPersistence;
+import com.siims.vmaque.timePlus.timenode.data.TimeNode;
 
 
 /**
@@ -27,14 +28,14 @@ import com.siims.vmaque.timePlus.timeaxis.persistence.TimeAxisPersistence;
  * 时光轴管理持久化接口实现类<br>
  * 
  * @author lf
- * @see TimePlusPersistenceImpl
+ * @see T
  * @since vmaque2.1
  */
 
 
 @Singleton
 @AutoBind(bindClass = TimeAxisPersistence.class)
-public class TimeAxisPersistenceImp implements
+public class TimeAxisPersistenceImpl implements
 TimeAxisPersistence{
 
 	    // 定义hibernate CRUD 操作对象
@@ -49,7 +50,7 @@ TimeAxisPersistence{
 		 * @param mybatis 数据访问对象
 		 */
 		@Inject
-		public TimeAxisPersistenceImp(@Named("mybatisDao") BaseDao mybatis, @Named("hibernateDao") BaseDao hibernate) {
+		public TimeAxisPersistenceImpl(@Named("mybatisDao") BaseDao mybatis, @Named("hibernateDao") BaseDao hibernate) {
 			this.mybatisDao = mybatis;
 			this.hibernateDao = hibernate;
 		}
@@ -60,13 +61,7 @@ TimeAxisPersistence{
 		 * 
 		 * @author lf<br>
 		 *         
-		 * @update
-		 * @param pageRoll
-		 *            分页参数
-		 * @return List<RedPackageContentData> 查询到的时光轴信息集合
-		 * @exception/throws
-		 * @see TimePlusPersistence#searchAllTimePlus(PageRoll)
-		 * @since vmaque2.1
+		 * 
 		 */
 	@Override
 	public List<TimeAxis> searchAllTimeAxis(PageRoll pageRoll,
@@ -81,12 +76,7 @@ TimeAxisPersistence{
 	 * 
 	 * @author lf 
 	 *		   
-	 * @update 
-	 * @param timePlusData     时光轴对象信息
-	 * @return  无返回值
-	 * @exception/throws 
-	 * @see   TimePlusPersistence#addTimePlusData(TimePlusData)
-	 * @since vmaque2.1
+	 * 
 	 */
 	@Override
 	public void addTimeAxis(TimeAxis axis) {
@@ -101,12 +91,7 @@ TimeAxisPersistence{
 	 * 
 	 * @author lf<br> 
 	 *		   
-	 * @update 
-	 * @param timePlusData     时光轴对象信息
-	 * @return  无返回值
-	 * @exception/throws 
-	 * @see   TimePlusPersistence#editTimePlusData(TimePlusData)
-	 * @since vmaque2.1
+	 
 	 */
 	@Override
 	public void editTimeAxis(TimeAxis axis) {
@@ -128,22 +113,12 @@ TimeAxisPersistence{
 	 * 
 	 * @author  lf<br> 
 	 *		 
-	 * @update 
-	 * @param id 时光轴id
-	 * @return void
-	 * @exception/throws 
-	 * @see   TimePlusPersistence#delTimePlus(String)
-	 * @since vmaque2.1
+	 
 	 */
 	@Override
 	public void delTimeAxis(String id) {
-		// TODO Auto-generated method stub
-		// 获取时光轴对象
-		//TimeAxis axis = (TimeAxis) hibernateDao.queryData(id, TimeAxis.class);
-		// 将时光轴设置为加删状态
-		//TimeAxis.setIsDelete(0);
-		// 更新时光轴数据
-		//hibernateDao.update(id, TimeAxis);
+		TimeAxis timeAxis = (TimeAxis)hibernateDao.queryData(id, TimeAxis.class);
+		hibernateDao.delete(id, timeAxis);
 	}
 
 	@Override

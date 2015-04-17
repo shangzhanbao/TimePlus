@@ -1,20 +1,24 @@
-package com.siims.vmaque.timePlus.timenode.business;
+package com.siims.vmaque.timePlus.timenode.service;
 
 import java.util.List;
 
-import com.siims.framework.base.BaseBusiness;
+
+
 import com.siims.framework.utils.PageRoll;
+import com.siims.framework.base.BaseService;
 import com.siims.vmaque.timePlus.timenode.data.TimeNode;
 
 /**
  * 
- * 时光轴管理Business接口<br>
+ * 时光轴管理service接口<br>
  * 
  * @author lf
  * @
  * @since vmaque2.1
  */
-public interface TimeNodeBusiness extends BaseBusiness{
+
+public interface TimeNodeService extends BaseService
+{
 	/**
 	 * 
 	 * 分页查询所有时光轴节点信息<br>
@@ -28,6 +32,7 @@ public interface TimeNodeBusiness extends BaseBusiness{
 	 * 
 	 */
 	List<TimeNode> searchAllTimeNode(PageRoll pageRoll, TimeNode timeNode);
+
 
 	/**
 	 * 

@@ -100,7 +100,7 @@ public class TimeAxisBusinessImpl implements TimeAxisBusiness{
 	 * @since vmaque2.1
 	 */
 	public void delTimeAxis(String id){
-		
+		ServiceContext.get(TimeAxisPersistence.class).delTimeAxis(id);
 	}
 	
 	/**

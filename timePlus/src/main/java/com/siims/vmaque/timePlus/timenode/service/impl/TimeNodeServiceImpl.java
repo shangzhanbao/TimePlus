@@ -1,15 +1,15 @@
-package com.siims.vmaque.timePlus.timenode.business.impl;
+package com.siims.vmaque.timePlus.timenode.service.impl;
 
 import java.util.List;
 
 import com.siims.framework.ioc.ServiceContext;
 import com.siims.framework.utils.PageRoll;
-import com.siims.vmaque.timePlus.timeaxis.persistence.TimeAxisPersistence;
 import com.siims.vmaque.timePlus.timenode.business.TimeNodeBusiness;
 import com.siims.vmaque.timePlus.timenode.data.TimeNode;
 import com.siims.vmaque.timePlus.timenode.persistence.TimeNodePersistence;
 
-public class TimeNodeBusinessImpl implements TimeNodeBusiness{
+public class TimeNodeServiceImpl implements TimeNodeBusiness
+{
 
 	/**
 	 * 
@@ -25,8 +25,9 @@ public class TimeNodeBusinessImpl implements TimeNodeBusiness{
 	 */
 	public List<TimeNode> searchAllTimeNode(PageRoll pageRoll, TimeNode timeNode)
 	{
-		return ServiceContext.get(TimeNodePersistence.class).searchAllTimeNode(pageRoll,timeNode);
+		return ServiceContext.get(TimeNodeBusiness.class).searchAllTimeNode(pageRoll,timeNode);
 	}
+
 
 	/**
 	 * 
@@ -38,7 +39,7 @@ public class TimeNodeBusinessImpl implements TimeNodeBusiness{
 	 */
 	public void addTimeNode(TimeNode timeNode)
 	{
-		ServiceContext.get(TimeNodePersistence.class).addTimeNode(timeNode);
+		ServiceContext.get(TimeNodeBusiness.class).addTimeNode(timeNode);
 	}
 
 	/**
@@ -51,7 +52,7 @@ public class TimeNodeBusinessImpl implements TimeNodeBusiness{
 	 */
 	public void editTimeNode(TimeNode timeNode)
 	{
-		ServiceContext.get(TimeNodePersistence.class).editTimeNode(timeNode);
+		ServiceContext.get(TimeNodeBusiness.class).editTimeNode(timeNode);
 	}
 
 	/**
@@ -64,7 +65,7 @@ public class TimeNodeBusinessImpl implements TimeNodeBusiness{
 	 */
 	public TimeNode searchTimeNodeById(String id)
 	{
-		return ServiceContext.get(TimeNodePersistence.class).searchTimeNodeById(id);
+		return ServiceContext.get(TimeNodeBusiness.class).searchTimeNodeById(id);
 	}
 
 	/**
@@ -77,7 +78,7 @@ public class TimeNodeBusinessImpl implements TimeNodeBusiness{
 	 */
 	public void delTimeNode(String id)
 	{
-		ServiceContext.get(TimeNodePersistence.class).delTimeNode(id);
+		ServiceContext.get(TimeNodeBusiness.class).delTimeNode(id);
 	}
 	
 	/**
@@ -95,4 +96,5 @@ public class TimeNodeBusinessImpl implements TimeNodeBusiness{
 		
 	}
 	
+
 }

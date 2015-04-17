@@ -1,20 +1,24 @@
-package com.siims.vmaque.timePlus.timenode.business;
+package com.siims.vmaque.timePlus.timenode.persistence;
 
 import java.util.List;
+import java.util.Map;
 
-import com.siims.framework.base.BaseBusiness;
+import com.siims.framework.base.BasePersistence;
 import com.siims.framework.utils.PageRoll;
+import com.siims.vmaque.timePlus.timeaxis.data.TimeAxis;
 import com.siims.vmaque.timePlus.timenode.data.TimeNode;
 
 /**
  * 
- * 时光轴管理Business接口<br>
+ * 时光轴节点管理持久化接口<br>
  * 
  * @author lf
- * @
+ * @see 
  * @since vmaque2.1
  */
-public interface TimeNodeBusiness extends BaseBusiness{
+public interface TimeNodePersistence extends
+		BasePersistence<TimeNode> {
+
 	/**
 	 * 
 	 * 分页查询所有时光轴节点信息<br>
@@ -80,6 +84,7 @@ public interface TimeNodeBusiness extends BaseBusiness{
 	
 	 */
 	void updateResidualTimeNodeNumById(String id, Integer residualTimeNodeNum);
+	
 	
 	
 }
